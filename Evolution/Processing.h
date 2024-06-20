@@ -67,14 +67,14 @@ static void initial_draw(Creature_data& data_) {
                 color = COLOR_BORDER;
             }
             else {
-                color = field.get_cell(Coord{ j - 1, i - 1, 0 }).get_landscape().get_texture();
+                color = field.get_cell(Coord{ j - 1, i - 1, 0 }).get_landscape()->get_texture();
                 if (field.get_cell(Coord{ j - 1, i - 1, 0 }).begin() == field.get_cell(Coord{ j - 1, i - 1, 0 }).end())
                 {
                     ch = CHAR_FIELD;
                 }
                 else {
                     auto creature = --field.get_cell(Coord{ j - 1, i - 1, 0 }).end();
-                    ch = (*creature).get_texture().get_texture();
+                    ch = (*creature)->get_texture().get_texture();
                 }
 
             }
@@ -145,14 +145,14 @@ inline void processing_draw(Creature_data& data, size_t tick)
                 {
                     continue;
                 }
-                size_t color = cell.get_landscape().get_texture();
+                size_t color = cell.get_landscape()->get_texture();
                 if (field.get_cell(Coord{ j - 1, i - 1, 0 }).begin() == field.get_cell(Coord{ j - 1, i - 1, 0 }).end())
                 {
                     ch = CHAR_FIELD;
                 }
                 else {
                     auto creature = --field.get_cell(Coord{ j - 1, i - 1, 0 }).end();
-                    ch = (*creature).get_texture().get_texture();
+                    ch = (*creature)->get_texture().get_texture();
                 }
                 cell.reset_change();
             con_charAt(static_cast<int>(ch), static_cast<int>(color), field_x + j, field_y + i);
@@ -161,32 +161,32 @@ inline void processing_draw(Creature_data& data, size_t tick)
     size_t plants = 0, herbs = 0, preds = 0, grass = 0, moss = 0, deers = 0, goats = 0, wolfs = 0, lynx = 0;
     for (auto creature = data.get_list().begin(); creature != data.get_list().end(); ++creature)
     {
-        if (dynamic_cast<Grass*>(&*creature))
+        if (!!std::dynamic_pointer_cast <Grass>(*creature))
         {
             plants++;
             grass++;
         }
-    	else if(dynamic_cast<Moss*>(&*creature))
+    	else if(!!std::dynamic_pointer_cast <Moss>(*creature))
         {
             plants++;
             moss++;
         }
-        else if (dynamic_cast<Deer*>(&*creature))
+        else if (!!std::dynamic_pointer_cast <Deer>(*creature))
         {
             herbs++;
             deers++;
         }
-        else if (dynamic_cast<Goat*>(&*creature))
+        else if (!!std::dynamic_pointer_cast <Goat>(*creature))
         {
             herbs++;
             goats++;
         }
-        else if (dynamic_cast<Wolf*>(&*creature))
+        else if (!!std::dynamic_pointer_cast <Wolf>(*creature))
         {
             wolfs++;
             preds++;
         }
-        else if (dynamic_cast<Lynx*>(&*creature))
+        else if (!!std::dynamic_pointer_cast <Lynx>(*creature))
         {
             lynx++;
             preds++;
@@ -239,7 +239,7 @@ inline void erase_creatures(Creature_data& data)
 			    continue;
 		    }
             size_t ch = CHAR_FIELD;
-            size_t color = field.get_cell(Coord{x, y, 0}).get_landscape().get_texture();
+            size_t color = field.get_cell(Coord{x, y, 0}).get_landscape()->get_texture();
             con_charAt(static_cast<int>(ch), static_cast<int>(color), field_x + x + 1, field_y + y + 1);
 	    }
     }

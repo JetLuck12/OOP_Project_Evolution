@@ -1,4 +1,6 @@
 #pragma once
+#include <memory>
+
 #include "Predator.h"
 
 class Lynx : public Predator
@@ -9,6 +11,6 @@ public:
 private:
 	static size_t ttl_bonus_for_eat;
 	bool is_cell_is_suitable(Creature_data& data, const Coord& coord) override;
-	std::optional<Creature*> is_enemy_near(Creature_data& field) override;
+	std::optional<std::shared_ptr<Creature>> is_enemy_near(Creature_data& field) override;
 	void breed_one(Creature_data& data, const Coord& coord) override;
 };

@@ -12,8 +12,8 @@ Creature_data::Creature_data(std::istream& creature_input, std::istream& landsca
 	Builder builder{};
 	while (std::getline(creature_input, string_line))
 	{
-		std::istringstream stream_line(string_line);
-		Creature_DTO raw_creature = Creature_parser::get_next(stream_line);
+		std::istringstream creature_stream_line(string_line);
+		Creature_DTO raw_creature = Creature_parser::get_next(creature_stream_line);
 		if (raw_creature.get_x() < 0 ||
 			raw_creature.get_x() >= field_.get_x() ||
 			raw_creature.get_y() < 0 ||
@@ -25,7 +25,7 @@ Creature_data::Creature_data(std::istream& creature_input, std::istream& landsca
 		}
 
 
-		Creature* child = builder
+		std::shared_ptr<Creature> child = builder
 			.type(raw_creature.get_type())
 			.texture(textures.get_texture(raw_creature.get_type()))
 			.ttl(raw_creature.get_ttl())
@@ -35,13 +35,13 @@ Creature_data::Creature_data(std::istream& creature_input, std::istream& landsca
 				})
 			.build();
 
-		field_.add_creature(*child);
-		list_.push_back(*child);
+		field_.add_creature(child);
+		list_.push_back(child);
 	}
 	while (std::getline(landscape_input, string_line))
 	{
-		std::istringstream stream_line(string_line);
-		Landscape_DTO raw_landscape = Landscape_parser::get_next(stream_line);
+		std::istringstream landscape_stream_line(string_line);
+		Landscape_DTO raw_landscape = Landscape_parser::get_next(landscape_stream_line);
 		if (raw_landscape.get_x() < 0 ||
 			raw_landscape.get_x() >= field_.get_x() ||
 			raw_landscape.get_y() < 0 ||
@@ -53,7 +53,7 @@ Creature_data::Creature_data(std::istream& creature_input, std::istream& landsca
 			Coord{
 				static_cast<size_t>(raw_landscape.get_x()) ,
 				static_cast<size_t>(raw_landscape.get_y()),
-				0 }).set_landscape(*landscapes.get_texture(raw_landscape.get_type()));
+				0 }).set_landscape(landscapes.get_texture(raw_landscape.get_type()));
 	}
 	for (size_t y = 0; y < field_.get_y(); ++y)
 	{
@@ -73,10 +73,9 @@ Creature_data::~Creature_data()
 	auto x = list_.begin();
 	while (x != list_.end())
 	{
-		Creature& creature = *x;
+		std::shared_ptr<Creature> creature = *x;
 		field_.remove_creature(creature);
 		list_.remove_creature(creature);
-		delete& creature;
 		x = list_.begin();
 	}
 }

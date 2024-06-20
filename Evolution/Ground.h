@@ -1,7 +1,7 @@
 #pragma once
 #include "Landscape.h"
 
-class Ground : public LandScape
+class Ground : public Landscape
 {
 public:
 	Ground() = default;

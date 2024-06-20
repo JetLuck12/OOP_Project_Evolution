@@ -26,40 +26,32 @@ Coord Creature_data::Builder::get_size_of_field(std::istringstream& input)
 	return Coord{ static_cast<size_t>(x),static_cast<size_t>(y),0 };
 }
 
-Creature* Creature_data::Builder::build()
+std::shared_ptr<Creature> Creature_data::Builder::build()
 {
-	Creature* child;
+
 	if (type_ == "Deer") {
-		child = new Deer(ttl_, coord_, texture_);
+		return std::make_shared<Deer>(ttl_, coord_, texture_);
 	}
-	else if (type_ == "Goat") {
-		child = new Goat(ttl_, coord_, texture_);
+	if (type_ == "Goat") {
+		return std::make_shared<Goat>(ttl_, coord_, texture_);
 	}
-	else if (type_ == "Moss")
+	if (type_ == "Moss")
 	{
-		child = new Moss(ttl_, coord_, texture_);
+		return std::make_shared<Moss>(ttl_, coord_, texture_);
 	}
-	else if (type_ == "Wolf")
+	if (type_ == "Wolf")
 	{
-		child = new Wolf(ttl_, coord_, texture_);
+		return std::make_shared <Wolf>(ttl_, coord_, texture_);
 	}
-	else if (type_ == "Grass")
+	if (type_ == "Grass")
 	{
-		child = new Grass(ttl_, coord_, texture_);
+		return std::make_shared <Grass>(ttl_, coord_, texture_);
 	}
-	else if (type_ == "Lynx")
+	if (type_ == "Lynx")
 	{
-		child = new Lynx(ttl_, coord_, texture_);
+		return std::make_shared <Lynx>(ttl_, coord_, texture_);
 	}
-	else
-	{
 		throw Builder_exc{};
-	}
-	if(child == nullptr)
-	{
-		throw memory_problems{};
-	}
-	return child;
 }
 
 Creature_data::Builder& Creature_data::Builder::coordinate(const Coord& coord)

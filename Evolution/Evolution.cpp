@@ -26,7 +26,7 @@ void Evolution::draw(std::ostream& output)
 			}
 			else {
 				auto creature = --field.get_cell(Coord{ j, i, 0 }).end();
-				output <<  (*creature).get_texture().get_texture()  << std::string{ " " };
+				output <<  (*creature)->get_texture().get_texture()  << std::string{ " " };
 			}
 		}
 		output << std::string{ "#\n" };
@@ -35,15 +35,15 @@ void Evolution::draw(std::ostream& output)
 	size_t plants = 0, herbs = 0, preds = 0;
 	for(auto creature = data_.get_list().begin(); creature != data_.get_list().end(); ++creature)
 	{
-		if(dynamic_cast<Plant*>(&*creature))
+		if(std::dynamic_pointer_cast<Plant>(*creature))
 		{
 			plants++;
 		}
-		else if(dynamic_cast<Herbivorous*>(&*creature))
+		else if(std::dynamic_pointer_cast<Herbivorous>(*creature))
 		{
 			herbs++;
 		}
-		else if(dynamic_cast<Predator*>(&*creature))
+		else if(std::dynamic_pointer_cast<Predator>(*creature))
 		{
 			preds++;
 		}
@@ -57,9 +57,9 @@ void Evolution::process_actions()
 {
 	for (auto creature = data_.get_list().begin(); creature != data_.get_list().end(); ++creature)
 	{
-		if ((*creature).get_ttl() != 0) {
-			(*creature).action(data_);
-			(*creature).reduce_ttl();
+		if ((*creature)->get_ttl() != 0) {
+			(*creature)->action(data_);
+			(*creature)->reduce_ttl();
 		}
 	}
 	tick++;
@@ -67,20 +67,19 @@ void Evolution::process_actions()
 
 void Evolution::remove_died()
 {
-	std::vector<Creature*> died_creatures;
+	std::vector<std::shared_ptr<Creature>> died_creatures;
 	for (auto creature = data_.get_list().begin(); creature != data_.get_list().end(); ++creature)
 	{
-		if ((*creature).get_ttl() == 0)
+		if ((*creature)->get_ttl() == 0)
 		{
-			died_creatures.push_back(&*creature);
+			died_creatures.push_back(*creature);
 
 		}
 	}
-	for (auto x : died_creatures)
+	for (const auto& x : died_creatures)
 	{
-		data_.get_field().remove_creature(*x);
-		data_.get_list().remove_creature(*x);
-		delete x;
+		data_.get_field().remove_creature(x);
+		data_.get_list().remove_creature(x);
 	}
 }
 

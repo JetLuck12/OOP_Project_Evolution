@@ -1,9 +1,9 @@
 #pragma once
 
-class LandScape
+class Landscape
 {
 public:
-	LandScape() = default;
-	virtual ~LandScape() = default;
+	Landscape() = default;
+	virtual ~Landscape() = default;
 	virtual size_t get_texture() const = 0;
 };
