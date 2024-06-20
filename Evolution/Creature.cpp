@@ -1,4 +1,5 @@
 #include "Creature.h"
+#include "Creature_data.h"
 
 size_t Creature::get_ttl() const
 {

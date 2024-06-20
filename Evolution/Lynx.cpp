@@ -1,7 +1,8 @@
 #include "Lynx.h"
-
 #include "Meadow.h"
 #include "Water.h"
+
+#include "Creature_data.h"
 
 void Lynx::breed_one(Creature_data& data, const Coord& coord)
 {
