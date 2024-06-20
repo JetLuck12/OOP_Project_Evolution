@@ -1,5 +1,6 @@
 #include <optional>
 
+#include "Creature_data.h"
 #include "Herbivorous.h"
 #include "Plant.h"
 #include "Predator.h"

@@ -3,7 +3,6 @@
 #include "Cell.h"
 #include "Ground.h"
 
-class Cell;
 class Creature_data;
 
 void Plant::action(Creature_data& field)
