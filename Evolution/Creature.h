@@ -1,7 +1,8 @@
 #pragma once
+#include <vector>
+
 #include "Texture.h"
 #include "Coord.h"
-#include "Creature_data.h"
 
 class Creature_data;
 

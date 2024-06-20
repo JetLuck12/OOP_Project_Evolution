@@ -168,9 +168,6 @@
     <ClCompile Include="Coord.cpp">
       <Filter>Simple classes</Filter>
     </ClCompile>
-    <ClCompile Include="Cell.cpp">
-      <Filter>Simple classes</Filter>
-    </ClCompile>
     <ClCompile Include="Creature.cpp">
       <Filter>Creature</Filter>
     </ClCompile>
@@ -236,6 +233,9 @@
     </ClCompile>
     <ClCompile Include="Landscape_pack.cpp">
       <Filter>Landscape\Landscape texture pack</Filter>
+    </ClCompile>
+    <ClCompile Include="Cell.cpp">
+      <Filter>Simple classes</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

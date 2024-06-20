@@ -1,5 +1,6 @@
 #include "Deer.h"
 
+#include "Creature_data.h"
 #include "Meadow.h"
 
 bool Deer::is_cell_is_suitable(Creature_data& data, const Coord& coord)

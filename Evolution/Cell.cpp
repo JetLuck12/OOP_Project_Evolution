@@ -18,7 +18,6 @@ void Cell::remove_creature(const Creature& creature)
 	creatures_.erase(it);
 
 	is_changed_ = true;
-}
 
 bool Cell::is_empty() const
 {

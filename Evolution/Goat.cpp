@@ -1,4 +1,5 @@
 #include "Goat.h"
+#include "Creature_data.h"
 
 void Goat::breed_one(Creature_data& data, const Coord& coord)
 {
