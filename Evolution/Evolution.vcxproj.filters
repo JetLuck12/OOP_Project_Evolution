@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Simple classes">
+      <UniqueIdentifier>{fd14de9b-394c-4019-836d-d56503854265}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Creature">
+      <UniqueIdentifier>{af7c095e-c9db-4afe-a29e-d1ca2c387aff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Evolution">
+      <UniqueIdentifier>{09959ac5-2e19-4ccb-8010-887f39fb42f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Parsing">
+      <UniqueIdentifier>{868f99cc-0b06-4120-a207-624d626a1c9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Building">
+      <UniqueIdentifier>{c1094ad4-20a6-43fd-803e-5f9997d67e62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Creature\Herbivorous">
+      <UniqueIdentifier>{bc988e88-0b31-450e-af1c-c0554718b67a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Creature\Plant">
+      <UniqueIdentifier>{28e0148e-4c21-4c2e-9adc-dc33b052af6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Creature\Predator">
+      <UniqueIdentifier>{f3760df7-f5ed-43d2-8d7f-d2a4bef8487f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Landscape">
+      <UniqueIdentifier>{0b89aa8d-6bf2-461a-bce8-758fe5d97f7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Landscape\Ground">
+      <UniqueIdentifier>{523e6604-4789-45e3-adbf-2bc565a69c4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Landscape\Water">
+      <UniqueIdentifier>{1fd114f8-0b98-4039-abd3-5693e335da72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Parsing\Creature parsing">
+      <UniqueIdentifier>{dadd23ae-8c1b-4227-bc11-72092006b0eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Parsing\Landscape parsing">
+      <UniqueIdentifier>{1ffef0d0-c830-4cdb-951a-fa6737b79a02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Landscape\Ground\Mountains">
+      <UniqueIdentifier>{60d477ea-155f-4e37-8558-becd1198d5a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Landscape\Ground\Meadow">
+      <UniqueIdentifier>{a1fdf4d5-220c-424a-9011-d8f8c755c47b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Creature\Plant\Moss">
+      <UniqueIdentifier>{33b8b9d2-4486-4766-b22b-37b6b2b65317}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Creature\Plant\Grass">
+      <UniqueIdentifier>{8c661e8a-d639-4266-a7a6-762b2db15fac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Creature\Herbivorous\Goat">
+      <UniqueIdentifier>{83987cd5-c902-48a1-be30-6e54db9e7336}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Creature\Herbivorous\Deer">
+      <UniqueIdentifier>{d51125bb-f8f3-4c7f-bb3c-029ee2a5f972}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Creature\Predator\Wolf">
+      <UniqueIdentifier>{7daf73d5-f0ff-4263-acec-ef740074e932}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics">
+      <UniqueIdentifier>{96ada376-530c-4037-9d44-3c81a396d583}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\Library">
+      <UniqueIdentifier>{2f5c826f-5f73-448a-8729-7291fff87feb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\Processing">
+      <UniqueIdentifier>{d6db69bb-c8ec-484d-bc41-2d06321dad81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Creature\Predator\Lynx">
+      <UniqueIdentifier>{149f533a-cae0-4e5e-9ba5-fffc681d4e33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Creature_data">
+      <UniqueIdentifier>{f4fc6744-9db9-4e45-a3c1-7619833341ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Landscape\Landscape texture pack">
+      <UniqueIdentifier>{ed3867f0-b1fd-4961-b3fb-940041f60247}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Coord.h">
+      <Filter>Simple classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Creature.h">
+      <Filter>Creature</Filter>
+    </ClInclude>
+    <ClInclude Include="Cell.h">
+      <Filter>Simple classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Herbivorous.h">
+      <Filter>Creature\Herbivorous</Filter>
+    </ClInclude>
+    <ClInclude Include="Predator.h">
+      <Filter>Creature\Predator</Filter>
+    </ClInclude>
+    <ClInclude Include="Evolution.h">
+      <Filter>Evolution</Filter>
+    </ClInclude>
+    <ClInclude Include="Creature_data.h">
+      <Filter>Creature_data</Filter>
+    </ClInclude>
+    <ClInclude Include="Exceptions.h" />
+    <ClInclude Include="Plant.h">
+      <Filter>Creature\Plant</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Simple classes</Filter>
+    </ClInclude>
+    <ClInclude Include="TexturePack.h">
+      <Filter>Simple classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Landscape.h">
+      <Filter>Landscape</Filter>
+    </ClInclude>
+    <ClInclude Include="Ground.h">
+      <Filter>Landscape\Ground</Filter>
+    </ClInclude>
+    <ClInclude Include="Water.h">
+      <Filter>Landscape\Water</Filter>
+    </ClInclude>
+    <ClInclude Include="Creature_DTO.h">
+      <Filter>Parsing\Creature parsing</Filter>
+    </ClInclude>
+    <ClInclude Include="Creature_parser.h">
+      <Filter>Parsing\Creature parsing</Filter>
+    </ClInclude>
+    <ClInclude Include="Landscape_parser.h">
+      <Filter>Parsing\Landscape parsing</Filter>
+    </ClInclude>
+    <ClInclude Include="Landscape_DTO.h">
+      <Filter>Parsing\Landscape parsing</Filter>
+    </ClInclude>
+    <ClInclude Include="Mountains.h">
+      <Filter>Landscape\Ground\Mountains</Filter>
+    </ClInclude>
+    <ClInclude Include="Meadow.h">
+      <Filter>Landscape\Ground\Meadow</Filter>
+    </ClInclude>
+    <ClInclude Include="Moss.h">
+      <Filter>Creature\Plant\Moss</Filter>
+    </ClInclude>
+    <ClInclude Include="Grass.h">
+      <Filter>Creature\Plant\Grass</Filter>
+    </ClInclude>
+    <ClInclude Include="Goat.h">
+      <Filter>Creature\Herbivorous\Goat</Filter>
+    </ClInclude>
+    <ClInclude Include="Deer.h">
+      <Filter>Creature\Herbivorous\Deer</Filter>
+    </ClInclude>
+    <ClInclude Include="Wolf.h">
+      <Filter>Creature\Predator\Wolf</Filter>
+    </ClInclude>
+    <ClInclude Include="console.h">
+      <Filter>Graphics\Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Processing.h">
+      <Filter>Graphics\Processing</Filter>
+    </ClInclude>
+    <ClInclude Include="Lynx.h">
+      <Filter>Creature\Predator\Lynx</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Coord.cpp">
+      <Filter>Simple classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Cell.cpp">
+      <Filter>Simple classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Creature.cpp">
+      <Filter>Creature</Filter>
+    </ClCompile>
+    <ClCompile Include="Plant.cpp">
+      <Filter>Creature\Plant</Filter>
+    </ClCompile>
+    <ClCompile Include="Creature_list.cpp">
+      <Filter>Creature_data</Filter>
+    </ClCompile>
+    <ClCompile Include="Predator.cpp">
+      <Filter>Creature\Predator</Filter>
+    </ClCompile>
+    <ClCompile Include="Herbivirous.cpp">
+      <Filter>Creature\Herbivorous</Filter>
+    </ClCompile>
+    <ClCompile Include="Evolution.cpp">
+      <Filter>Evolution</Filter>
+    </ClCompile>
+    <ClCompile Include="Creature_field.cpp">
+      <Filter>Creature_data</Filter>
+    </ClCompile>
+    <ClCompile Include="Creature_data.cpp">
+      <Filter>Creature_data</Filter>
+    </ClCompile>
+    <ClCompile Include="Creature_DTO.cpp">
+      <Filter>Parsing\Creature parsing</Filter>
+    </ClCompile>
+    <ClCompile Include="Creature_parser.cpp">
+      <Filter>Parsing\Creature parsing</Filter>
+    </ClCompile>
+    <ClCompile Include="Landscape_parser.cpp">
+      <Filter>Parsing\Landscape parsing</Filter>
+    </ClCompile>
+    <ClCompile Include="Creature_builder.cpp">
+      <Filter>Building</Filter>
+    </ClCompile>
+    <ClCompile Include="Moss.cpp">
+      <Filter>Creature\Plant\Moss</Filter>
+    </ClCompile>
+    <ClCompile Include="Grass.cpp">
+      <Filter>Creature\Plant\Grass</Filter>
+    </ClCompile>
+    <ClCompile Include="Deer.cpp">
+      <Filter>Creature\Herbivorous\Deer</Filter>
+    </ClCompile>
+    <ClCompile Include="Wolf.cpp">
+      <Filter>Creature\Predator\Wolf</Filter>
+    </ClCompile>
+    <ClCompile Include="Goat.cpp">
+      <Filter>Creature\Herbivorous\Goat</Filter>
+    </ClCompile>
+    <ClCompile Include="console.c">
+      <Filter>Graphics\Library</Filter>
+    </ClCompile>
+    <ClCompile Include="Creature_configuration.h">
+      <Filter>Creature</Filter>
+    </ClCompile>
+    <ClCompile Include="Lynx.cpp">
+      <Filter>Creature\Predator\Lynx</Filter>
+    </ClCompile>
+    <ClCompile Include="Landscape_pack.h">
+      <Filter>Landscape\Landscape texture pack</Filter>
+    </ClCompile>
+    <ClCompile Include="Landscape_pack.cpp">
+      <Filter>Landscape\Landscape texture pack</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
