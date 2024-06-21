@@ -11,14 +11,15 @@ void Cell::add_creature(Creature& creature)
 void Cell::remove_creature(const Creature& creature)
 {
 	auto it = std::ranges::find(creatures_, &creature);
-	if(it == creatures_.end())
+	if (it == creatures_.end())
 	{
-			throw Bad_creature{};
+		throw Bad_creature{};
 	}
 	creatures_.erase(it);
 
 	is_changed_ = true;
 
+}
 bool Cell::is_empty() const
 {
 	return creatures_.empty();
