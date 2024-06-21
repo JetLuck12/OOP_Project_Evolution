@@ -30,7 +30,7 @@ public:
 
 	Cell& get_cell(const Coord&);
 	void add_creature(std::shared_ptr <Creature>);
-	void remove_creature(const std::shared_ptr <Creature>&);
+	void remove_creature(std::shared_ptr <Creature>);
 	void move_creature(const Coord& end_coord, Creature*);
 
 	size_t get_x() const { return x_; }

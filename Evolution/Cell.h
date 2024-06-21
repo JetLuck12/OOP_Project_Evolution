@@ -30,7 +30,7 @@ public:
 	Iterator end() const { return Iterator{ creatures_.end() }; }
 	Cell() { landscape = nullptr; is_changed_ = false; }
 	void add_creature(std::shared_ptr<Creature>);
-	void remove_creature(const std::shared_ptr <Creature>&);
+	void remove_creature(std::shared_ptr <Creature>);
 	std::shared_ptr<Creature>& find_creature(Creature*);
 	bool is_empty() const;
 	std::shared_ptr<Landscape> get_landscape() const;

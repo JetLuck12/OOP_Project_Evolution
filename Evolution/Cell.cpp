@@ -36,10 +36,11 @@ bool Cell::is_empty() const
 	return creatures_.empty();
 }
 
-void Cell::remove_creature(const std::shared_ptr <Creature>& creature)
+void Cell::remove_creature(std::shared_ptr <Creature> creature)
 {
 	is_changed_ = true;
-	auto creature_iter = std::ranges::find(creatures_, creature);
+
+	auto creature_iter = std::find(creatures_.begin(), creatures_.end(), creature);
 	if(creature_iter == creatures_.end())
 	{
 		throw Unfound_creature{};

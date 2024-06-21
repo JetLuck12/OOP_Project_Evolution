@@ -38,14 +38,14 @@ void Creature_field::move_creature(const Coord& end_coord, Creature* creature)
 	{
 		throw Wrong_coords{};
 	}
-	std::shared_ptr<Creature>& creature_ptr = get_cell(creature->get_coord()).find_creature(creature);
+	std::shared_ptr<Creature> creature_ptr = get_cell(creature->get_coord()).find_creature(creature);
 	remove_creature(creature_ptr);
 	creature_ptr->set_coord(end_coord);
 	field_[end_coord.get_y() * x_ + end_coord.get_x()].add_creature(creature_ptr);
 
 }
 
-void Creature_field::remove_creature(const std::shared_ptr <Creature>& creature)
+void Creature_field::remove_creature(std::shared_ptr <Creature> creature)
 {
 	if (creature->get_coord().get_x() > x_ || creature->get_coord().get_y() > y_)
 	{

@@ -7,7 +7,12 @@
 
 bool Wolf::is_cell_is_suitable(Creature_data& data, const Coord& coord)
 {
-	return !!std::dynamic_pointer_cast<std::shared_ptr<Meadow>>(data.get_field().get_cell(coord).get_landscape());
+	auto land = data.get_field().get_cell(coord).get_landscape();
+	if(std::dynamic_pointer_cast<Meadow>(land))
+	{
+		return true;
+	}
+	return false;
 }
 
 void Wolf::breed_one(Creature_data& data, const Coord& coord)

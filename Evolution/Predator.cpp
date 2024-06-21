@@ -66,7 +66,7 @@ std::optional<std::shared_ptr<Creature>> Predator::is_herbivirous_near(Creature_
 		const Cell& cell = field.get_field().get_cell(cord);
 		for (auto creature = cell.begin(); creature != cell.end(); ++creature)
 		{
-			if (!std::dynamic_pointer_cast<std::shared_ptr<Herbivorous>>(*creature))
+			if (!std::dynamic_pointer_cast<Herbivorous>(*creature))
 			{
 				continue;
 			}

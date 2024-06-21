@@ -25,8 +25,7 @@ bool Plant::is_plant_here(const Cell& cell)
 {
 	for (auto creature_it = cell.begin(); creature_it != cell.end(); ++creature_it)
 	{
-		std::shared_ptr<Creature> creature = *creature_it;
-		if (std::dynamic_pointer_cast<std::shared_ptr <Plant>>(creature))
+		if (std::dynamic_pointer_cast<Plant>(*creature_it))
 		{
 			return true;
 		}

@@ -83,7 +83,7 @@ std::optional<std::shared_ptr<Creature>> Herbivorous::is_plant_here(Creature_dat
 	const Cell& cell = field.get_field().get_cell(coord_);
 	for (auto creature = cell.begin(); creature != cell.end(); ++creature)
 	{
-		if (!std::dynamic_pointer_cast<std::shared_ptr <Plant>>(*creature))
+		if (!std::dynamic_pointer_cast<Plant>(*creature))
 		{
 			continue;
 		}
@@ -102,7 +102,7 @@ std::optional<std::shared_ptr<Creature>> Herbivorous::is_plant_near(Creature_dat
 		const Cell& cell = field.get_field().get_cell(cord);
 		for (auto creature = cell.begin(); creature != cell.end(); ++creature)
 		{
-			if (!std::dynamic_pointer_cast<std::shared_ptr <Plant>>(*creature))
+			if (!std::dynamic_pointer_cast<Plant>(*creature))
 			{
 				continue;
 			}
@@ -125,7 +125,7 @@ std::optional<Coord> Herbivorous::is_predator_near(Creature_data& field)
 		const Cell& cell = field.get_field().get_cell(cord);
 		for (auto creature = cell.begin(); creature != cell.end(); ++creature)
 		{
-			if (std::dynamic_pointer_cast<std::shared_ptr <Predator>>(*creature))
+			if (std::dynamic_pointer_cast<Predator>(*creature))
 			{
 				return std::optional<Coord>{(*creature)->get_coord()};
 			}

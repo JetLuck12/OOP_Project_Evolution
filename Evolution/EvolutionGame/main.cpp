@@ -17,9 +17,9 @@ int main()
 {
 	{
 		srand(std::chrono::system_clock::now().time_since_epoch().count());
-		std::ifstream input("Creatures2.txt");
+		std::ifstream input("Creatures.txt");
 
-		std::ifstream landscape_stream( "Landscape2.txt" );
+		std::ifstream landscape_stream( "Landscape.txt" );
 
 		Texture_pack creature_textures{};
 		creature_textures.add_texture("Grass", Texture{ CHAR_GRASS });
@@ -30,9 +30,9 @@ int main()
 		creature_textures.add_texture("Lynx", Texture{ CHAR_LYNX });
 
 		Landscape_pack landscapes{};
-		landscapes.add_texture("Meadow", new Meadow(COLOR_MEADOW));
-		landscapes.add_texture("Mountain", new Mountains(COLOR_MOUNTAINS));
-		landscapes.add_texture("Water", new Water(COLOR_WATER));
+		landscapes.add_texture("Meadow", std::make_shared<Meadow>(COLOR_MEADOW));
+		landscapes.add_texture("Mountain", std::make_shared<Mountains>(COLOR_MOUNTAINS));
+		landscapes.add_texture("Water", std::make_shared<Water>(COLOR_WATER));
 
 		Evolution evo(input, landscape_stream, creature_textures, landscapes);
 		size_t tick = 0;

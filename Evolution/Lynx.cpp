@@ -17,7 +17,7 @@ void Lynx::breed_one(Creature_data& data, const Coord& coord)
 
 bool Lynx::is_cell_is_suitable(Creature_data& data, const Coord& coord)
 {
-	return !std::dynamic_pointer_cast<std::shared_ptr<Water>>(data.get_field().get_cell(coord).get_landscape());
+	return !std::dynamic_pointer_cast<Water>(data.get_field().get_cell(coord).get_landscape());
 }
 
 std::optional<std::shared_ptr<Creature>> Lynx::is_enemy_near(Creature_data& field)

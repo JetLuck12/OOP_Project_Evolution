@@ -7,7 +7,7 @@
 
 bool Grass::is_cell_is_suitable(Creature_data& data, const Coord& coord)
 {
-	return !!std::dynamic_pointer_cast<std::shared_ptr<Meadow>>(data.get_field().get_cell(coord).get_landscape());
+	return !!std::dynamic_pointer_cast<Meadow>(data.get_field().get_cell(coord).get_landscape());
 }
 
 void Grass::breed_one(Creature_data& field, const Coord& coord)
