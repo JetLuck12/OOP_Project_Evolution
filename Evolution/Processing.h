@@ -114,10 +114,12 @@ inline int init_draw(Creature_data& data) {
     con_init();
 
     init_colors();
-    HWND hWindowConsole = GetConsoleWindow();
-    RECT r;
-    GetWindowRect(hWindowConsole, &r); //stores the console's current dimensions
-    MoveWindow(hWindowConsole, r.left, r.top, 4000, 1000, TRUE);
+    //HWND hWindowConsole = GetConsoleWindow();
+    //RECT r;
+    //GetWindowRect(hWindowConsole, &r); //stores the console's current dimensions
+    //MoveWindow(hWindowConsole, r.left, r.top, 4000, 1000, TRUE);
+
+    ::SendMessage(::GetConsoleWindow(), WM_SYSKEYDOWN, VK_RETURN, 0x20000000);
 
     // calculate size of field
     con_getMaxXY(&max_x, &max_y);
