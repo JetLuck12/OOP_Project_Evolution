@@ -4,6 +4,7 @@
 #include "Creature_data.h"
 #include <sstream>
 #include <ostream>
+#include <windows.h>
 
 #include "Goat.h"
 #include "Grass.h"
@@ -113,6 +114,10 @@ inline int init_draw(Creature_data& data) {
     con_init();
 
     init_colors();
+    HWND hWindowConsole = GetConsoleWindow();
+    RECT r;
+    GetWindowRect(hWindowConsole, &r); //stores the console's current dimensions
+    MoveWindow(hWindowConsole, r.left, r.top, 4000, 1000, TRUE);
 
     // calculate size of field
     con_getMaxXY(&max_x, &max_y);

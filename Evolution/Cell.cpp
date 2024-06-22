@@ -31,7 +31,6 @@ std::shared_ptr<Landscape> Cell::get_landscape() const
 	return landscape;
 }
 
-}
 bool Cell::is_empty() const
 {
 	return creatures_.empty();
