@@ -1,23 +1,35 @@
 #include "Cell.h"
+#include <algorithm>
 #include "Exceptions.h"
 
-void Cell::add_creature(Creature& creature)
+void Cell::set_landscape(std::shared_ptr<Landscape> new_land)
 {
-	creatures_.push_back(&creature);
+	landscape = new_land;
+}
+
+void Cell::add_creature(std::shared_ptr <Creature> creature)
+{
 	is_changed_ = true;
+	creatures_.push_back(creature);
+}
+
+std::shared_ptr<Creature>& Cell::find_creature(Creature* creature)
+{
+	for (auto& creature_ptr : creatures_)
+	{
+		if (creature_ptr.get() == creature)
+		{
+			return creature_ptr;
+		}
+	}
+	throw Unfound_creature{};
 }
 
 
-void Cell::remove_creature(const Creature& creature)
+std::shared_ptr<Landscape> Cell::get_landscape() const
 {
-	auto it = std::ranges::find(creatures_, &creature);
-	if (it == creatures_.end())
-	{
-		throw Bad_creature{};
-	}
-	creatures_.erase(it);
-
-	is_changed_ = true;
+	return landscape;
+}
 
 }
 bool Cell::is_empty() const
@@ -25,12 +37,14 @@ bool Cell::is_empty() const
 	return creatures_.empty();
 }
 
-LandScape& Cell::get_landscape() const
+void Cell::remove_creature(std::shared_ptr <Creature> creature)
 {
-	return *landscape;
-}
+	is_changed_ = true;
 
-void Cell::set_landscape(LandScape& new_land)
-{
-	landscape = &new_land;
+	auto creature_iter = std::find(creatures_.begin(), creatures_.end(), creature);
+	if(creature_iter == creatures_.end())
+	{
+		throw Unfound_creature{};
+	}
+	creatures_.erase(creature_iter);
 }

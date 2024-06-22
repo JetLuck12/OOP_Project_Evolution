@@ -9,4 +9,5 @@ public:
 private:
 	bool is_cell_is_suitable(Creature_data& data, const Coord& coord) override;
 	void breed_one(Creature_data& field, const Coord& coord) override;
+	bool is_breedable() const override;
 };

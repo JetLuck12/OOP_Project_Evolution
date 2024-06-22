@@ -1,7 +1,7 @@
 #pragma once
 #include "Landscape.h"
 
-class Water : public LandScape
+class Water : public Landscape
 {
 public:
 	Water(size_t texture) : texture_(texture){}

@@ -18,19 +18,19 @@ void Predator::action(Creature_data& field)
 		return;
 	}
 
-	std::optional<Creature*> enemy = is_enemy_near(field);
+	std::optional<std::shared_ptr<Creature>> enemy = is_enemy_near(field);
 	if(enemy.has_value())
 	{
 		move(field, enemy.value()->get_coord());
-		battle(field, *enemy.value());
+		battle(field, enemy.value());
 		return;
 	}
 
-	std::optional<Creature*> victim = is_herbivirous_near(field);
+	std::optional<std::shared_ptr<Creature>> victim = is_herbivirous_near(field);
 	if(victim.has_value())
 	{
 		move(field, victim.value()->get_coord());
-		eat(field, *victim.value());
+		eat(field, victim.value());
 	}
 	else
 	{
@@ -52,26 +52,26 @@ void Predator::breed(Creature_data& field)
 	}
 }
 
-void Predator::eat(Creature_data& field, Creature& victim)
+void Predator::eat(Creature_data& field, std::shared_ptr<Creature> victim)
 {
-	ttl_ += victim.get_ttl() + ttl_bonus_for_eat;
-	victim.set_ttl(0);
+	ttl_ += victim->get_ttl() + ttl_bonus_for_eat;
+	victim->set_ttl(0);
 }
 
-std::optional<Creature*> Predator::is_herbivirous_near(Creature_data& field)
+std::optional<std::shared_ptr<Creature>> Predator::is_herbivirous_near(Creature_data& field)
 {
 	std::vector<Coord> around_cells = look_around(field);
-	std::vector<Creature*> victims;
+	std::vector<std::shared_ptr<Creature>> victims;
 	for (auto cord : around_cells) {
 		const Cell& cell = field.get_field().get_cell(cord);
 		for (auto creature = cell.begin(); creature != cell.end(); ++creature)
 		{
-			if (!dynamic_cast<const Herbivorous*>(&*creature))
+			if (!std::dynamic_pointer_cast<Herbivorous>(*creature))
 			{
 				continue;
 			}
-			if ((*creature).get_ttl() != 0 && is_cell_is_suitable(field, (*creature).get_coord())) {
-				victims.push_back(&*creature);
+			if ((*creature)->get_ttl() != 0 && is_cell_is_suitable(field, (*creature)->get_coord())) {
+				victims.push_back(*creature);
 			}
 		}
 	}
@@ -84,19 +84,19 @@ std::optional<Creature*> Predator::is_herbivirous_near(Creature_data& field)
 
 void Predator::move(Creature_data& field, const Coord& coord)
 {
-	field.get_field().move_creature(coord, *this);
+	field.get_field().move_creature(coord, this);
 }
 
 
 bool Predator::is_cell_is_suitable(Creature_data& data, const Coord& coord)
 {
-	return dynamic_cast<Ground*>(&data.get_field().get_cell(coord).get_landscape());
+	return !!std::dynamic_pointer_cast<Ground>(data.get_field().get_cell(coord).get_landscape());
 }
 
-void Predator::battle(Creature_data& field, Creature& enemy)
+void Predator::battle(Creature_data& field, std::shared_ptr<Creature> enemy)
 {
 	if(rand()%2)
 	{
-		enemy.set_ttl(0);
+		enemy->set_ttl(0);
 	}
 }

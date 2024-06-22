@@ -14,13 +14,13 @@ void Creature_field::set_size_of_field(const Coord& coord)
 	field_.resize(x_ * y_);
 }
 
-void Creature_field::add_creature(Creature& creature)
+void Creature_field::add_creature(std::shared_ptr <Creature> creature)
 {
-	if (creature.get_coord().get_x() > x_ || creature.get_coord().get_y() > y_)
+	if (creature->get_coord().get_x() > x_ || creature->get_coord().get_y() > y_)
 	{
 		throw Wrong_coords{};
 	}
-	field_[creature.get_coord().get_y() * x_ + creature.get_coord().get_x()].add_creature(creature);
+	field_[creature->get_coord().get_y() * x_ + creature->get_coord().get_x()].add_creature(creature);
 }
 
 Cell& Creature_field::get_cell(const Coord& coord)
@@ -32,23 +32,25 @@ Cell& Creature_field::get_cell(const Coord& coord)
 	return field_[coord.get_y() * x_ + coord.get_x()];
 }
 
-void Creature_field::move_creature(const Coord& end_coord, Creature& creature)
+void Creature_field::move_creature(const Coord& end_coord, Creature* creature)
 {
 	if (end_coord.get_x() > x_ || end_coord.get_y() > y_)
 	{
 		throw Wrong_coords{};
 	}
-	remove_creature(creature);
-	creature.set_coord(end_coord);
-	field_[end_coord.get_y() * x_ + end_coord.get_x()].add_creature(creature);
+	std::shared_ptr<Creature> creature_ptr = get_cell(creature->get_coord()).find_creature(creature);
+	remove_creature(creature_ptr);
+	creature_ptr->set_coord(end_coord);
+	field_[end_coord.get_y() * x_ + end_coord.get_x()].add_creature(creature_ptr);
+
 }
 
-void Creature_field::remove_creature(const Creature& creature)
+void Creature_field::remove_creature(std::shared_ptr <Creature> creature)
 {
-	if (creature.get_coord().get_x() > x_ || creature.get_coord().get_y() > y_)
+	if (creature->get_coord().get_x() > x_ || creature->get_coord().get_y() > y_)
 	{
 		throw Wrong_coords{};
 	}
-	field_[creature.get_coord().get_y() * x_ + creature.get_coord().get_x()].remove_creature(creature);
+	field_[creature->get_coord().get_y() * x_ + creature->get_coord().get_x()].remove_creature(creature);
 }
 

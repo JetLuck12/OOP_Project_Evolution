@@ -17,7 +17,7 @@ protected:
 	static size_t ttl_if_eaten;
 	size_t time_after_multiply;
 	virtual void breed_around(Creature_data& field);
-	virtual void breed_one(Creature_data& field, const Coord& coord);
+	virtual void breed_one(Creature_data& field, const Coord& coord) = 0;
 	static bool is_plant_here(const Cell&);
-	virtual bool is_breedable() const ;
+	virtual bool is_breedable() const  = 0;
 };

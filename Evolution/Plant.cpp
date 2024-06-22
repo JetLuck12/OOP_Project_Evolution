@@ -1,4 +1,7 @@
 #include "Plant.h"
+
+#include <memory>
+
 #include "Creature_data.h"
 #include "Cell.h"
 #include "Ground.h"
@@ -22,8 +25,7 @@ bool Plant::is_plant_here(const Cell& cell)
 {
 	for (auto creature_it = cell.begin(); creature_it != cell.end(); ++creature_it)
 	{
-		const Creature* creature = &*creature_it;
-		if (dynamic_cast<const Plant*>(creature))
+		if (std::dynamic_pointer_cast<Plant>(*creature_it))
 		{
 			return true;
 		}
@@ -46,18 +48,6 @@ void Plant::breed_around(Creature_data& field)
 
 bool Plant::is_cell_is_suitable(Creature_data& data, const Coord& coord)
 {
-	return dynamic_cast<Ground*>(&data.get_field().get_cell(coord).get_landscape());
+	return !!std::dynamic_pointer_cast<Ground>(data.get_field().get_cell(coord).get_landscape());
 	
-}
-
-void Plant::breed_one(Creature_data& field, const Coord& coord)
-{
-	Plant* child = new Plant(1, coord, tex_);
-	field.get_list().push_back(*child);
-	field.get_field().add_creature(*child);
-}
-
-bool Plant::is_breedable() const
-{
-	return time_after_multiply >= breeding_period;
 }
