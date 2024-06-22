@@ -31,6 +31,7 @@ std::shared_ptr<Landscape> Cell::get_landscape() const
 	return landscape;
 }
 
+}
 bool Cell::is_empty() const
 {
 	return creatures_.empty();
@@ -47,4 +48,3 @@ void Cell::remove_creature(std::shared_ptr <Creature> creature)
 	}
 	creatures_.erase(creature_iter);
 }
-
