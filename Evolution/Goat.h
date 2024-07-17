@@ -4,7 +4,7 @@
 class Goat : public Herbivorous
 {
 public:
-	Goat(size_t ttl, const Coord& coord, const Texture& tex):Herbivorous(ttl,coord,tex){}
+	Goat(size_t ttl, const Coord& coord, std::shared_ptr<sf::Texture> tex):Herbivorous(ttl,coord,tex){}
 	~Goat() override = default;
 protected:
 	static size_t ttl_breeding_level;

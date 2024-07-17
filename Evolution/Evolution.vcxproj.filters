@@ -67,9 +67,6 @@
     <Filter Include="Graphics\Library">
       <UniqueIdentifier>{2f5c826f-5f73-448a-8729-7291fff87feb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Graphics\Processing">
-      <UniqueIdentifier>{d6db69bb-c8ec-484d-bc41-2d06321dad81}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Creature\Predator\Lynx">
       <UniqueIdentifier>{149f533a-cae0-4e5e-9ba5-fffc681d4e33}</UniqueIdentifier>
     </Filter>
@@ -78,6 +75,9 @@
     </Filter>
     <Filter Include="Landscape\Landscape texture pack">
       <UniqueIdentifier>{ed3867f0-b1fd-4961-b3fb-940041f60247}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\SFML">
+      <UniqueIdentifier>{6a230481-99af-40d9-bb73-02d09da027a5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -157,11 +157,17 @@
     <ClInclude Include="console.h">
       <Filter>Graphics\Library</Filter>
     </ClInclude>
-    <ClInclude Include="Processing.h">
-      <Filter>Graphics\Processing</Filter>
-    </ClInclude>
     <ClInclude Include="Lynx.h">
       <Filter>Creature\Predator\Lynx</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML_drawing.h">
+      <Filter>Graphics\SFML</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture_init.h">
+      <Filter>Graphics\SFML</Filter>
+    </ClInclude>
+    <ClInclude Include="Dragging.h">
+      <Filter>Graphics\SFML</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -237,5 +243,16 @@
     <ClCompile Include="Cell.cpp">
       <Filter>Simple classes</Filter>
     </ClCompile>
+    <ClCompile Include="SFML_drawing.cpp">
+      <Filter>Graphics\SFML</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="EvolutionGame\texture_paths.txt">
+      <Filter>Graphics\SFML</Filter>
+    </Text>
+    <Text Include="EvolutionGame\landscape_paths.txt">
+      <Filter>Graphics\SFML</Filter>
+    </Text>
   </ItemGroup>
 </Project>

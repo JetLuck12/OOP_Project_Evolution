@@ -1,4 +1,7 @@
 #include "Creature_data.h"
+
+#include <memory>
+
 #include "Creature.h"
 #include "Landscape_parser.h"
 
@@ -27,12 +30,12 @@ Creature_data::Creature_data(std::istream& creature_input, std::istream& landsca
 
 		std::shared_ptr<Creature> child = builder
 			.type(raw_creature.get_type())
-			.texture(textures.get_texture(raw_creature.get_type()))
 			.ttl(raw_creature.get_ttl())
 			.coordinate(Coord{
 				static_cast<size_t>(raw_creature.get_x()),
 				static_cast<size_t>(raw_creature.get_y()),static_cast<size_t>(raw_creature.get_z())
 				})
+			.texture(textures.get_texture(raw_creature.get_type()))
 			.build();
 
 		field_.add_creature(child);
@@ -54,16 +57,6 @@ Creature_data::Creature_data(std::istream& creature_input, std::istream& landsca
 				static_cast<size_t>(raw_landscape.get_x()) ,
 				static_cast<size_t>(raw_landscape.get_y()),
 				0 }).set_landscape(landscapes.get_texture(raw_landscape.get_type()));
-	}
-	for (size_t y = 0; y < field_.get_y(); ++y)
-	{
-		for (size_t x = 0; x < field_.get_x(); ++x)
-		{
-			if (!field_.get_cell(Coord{x,y,0}).is_land_init())
-			{
-				throw few_lands_exc{};
-			}
-		}
 	}
 }
 

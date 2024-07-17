@@ -4,9 +4,9 @@
 class Mountains : public Ground
 {
 public:
-	Mountains(size_t texture):texture_(texture){}
+	Mountains(std::shared_ptr<sf::Texture> texture):texture_(texture){}
 	~Mountains() override = default;
-	size_t get_texture() const override { return texture_; }
+	std::shared_ptr<sf::Texture> get_texture() const override { return texture_; }
 private:
-	size_t texture_;
+	std::shared_ptr<sf::Texture> texture_;
 };

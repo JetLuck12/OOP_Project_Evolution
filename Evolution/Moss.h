@@ -4,7 +4,7 @@
 class Moss : public Plant
 {
 public:
-	Moss(size_t ttl, const Coord& coord, const Texture& tex):Plant(ttl, coord, tex){}
+	Moss(size_t ttl, const Coord& coord, std::shared_ptr<sf::Texture> tex):Plant(ttl, coord, tex){}
 	~Moss() override = default;
 	size_t get_ttl_if_eaten() override { return ttl_if_eaten; }
 private:

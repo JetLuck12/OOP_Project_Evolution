@@ -4,7 +4,7 @@
 
 void Cell::set_landscape(std::shared_ptr<Landscape> new_land)
 {
-	landscape = new_land;
+	landscape_ = new_land;
 }
 
 void Cell::add_creature(std::shared_ptr <Creature> creature)
@@ -28,7 +28,7 @@ std::shared_ptr<Creature>& Cell::find_creature(Creature* creature)
 
 std::shared_ptr<Landscape> Cell::get_landscape() const
 {
-	return landscape;
+	return landscape_;
 }
 
 bool Cell::is_empty() const

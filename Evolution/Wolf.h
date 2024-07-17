@@ -6,7 +6,7 @@
 class Wolf : public Predator
 {
 public:
-	Wolf(size_t ttl, const Coord& coord, const Texture& tex):Predator(ttl, coord,tex){}
+	Wolf(size_t ttl, const Coord& coord, std::shared_ptr<sf::Texture> tex):Predator(ttl, coord,tex){}
 	~Wolf() override = default;
 private:
 	bool is_cell_is_suitable(Creature_data& data, const Coord& coord) override;

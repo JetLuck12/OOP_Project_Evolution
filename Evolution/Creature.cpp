@@ -21,7 +21,7 @@ void Creature::reduce_ttl()
 	ttl_ -= 1;
 }
 
-const Texture& Creature::get_texture() const
+std::shared_ptr<sf::Texture> Creature::get_texture() const
 {
 	return tex_;
 }

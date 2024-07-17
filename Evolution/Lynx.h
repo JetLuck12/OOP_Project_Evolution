@@ -6,7 +6,7 @@
 class Lynx : public Predator
 {
 public:
-	Lynx(size_t ttl, const Coord& coord, const Texture& tex):Predator(ttl,coord,tex){}
+	Lynx(size_t ttl, const Coord& coord, std::shared_ptr<sf::Texture> tex):Predator(ttl,coord,tex){}
 	~Lynx() override = default;
 private:
 	static size_t ttl_bonus_for_eat;

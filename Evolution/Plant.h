@@ -6,7 +6,7 @@ class Cell;
 class Plant : public  Creature
 {
 public:
-	Plant(size_t ttl,const Coord& coord, Texture tex) : Creature(ttl, coord, tex), time_after_multiply(0){}
+	Plant(size_t ttl,const Coord& coord, std::shared_ptr<sf::Texture> tex) : Creature(ttl, coord, tex), time_after_multiply(0){}
 	~Plant() override = default;
 	void action(Creature_data& field) override;
 	void reduce_ttl() override {}

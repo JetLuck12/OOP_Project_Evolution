@@ -77,6 +77,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -92,6 +93,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -107,6 +109,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -122,6 +125,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -139,6 +143,7 @@
     <ClInclude Include="Creature_DTO.h" />
     <ClInclude Include="Creature_parser.h" />
     <ClInclude Include="Deer.h" />
+    <ClInclude Include="Dragging.h" />
     <ClInclude Include="Evolution.h" />
     <ClInclude Include="Exceptions.h" />
     <ClInclude Include="Goat.h" />
@@ -154,9 +159,10 @@
     <ClInclude Include="Mountains.h" />
     <ClInclude Include="Plant.h" />
     <ClInclude Include="Predator.h" />
-    <ClInclude Include="Processing.h" />
+    <ClInclude Include="SFML_drawing.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TexturePack.h" />
+    <ClInclude Include="Texture_init.h" />
     <ClInclude Include="Water.h" />
     <ClInclude Include="Wolf.h" />
   </ItemGroup>
@@ -184,7 +190,12 @@
     <ClCompile Include="Moss.cpp" />
     <ClCompile Include="Plant.cpp" />
     <ClCompile Include="Predator.cpp" />
+    <ClCompile Include="SFML_drawing.cpp" />
     <ClCompile Include="Wolf.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="EvolutionGame\landscape_paths.txt" />
+    <Text Include="EvolutionGame\texture_paths.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

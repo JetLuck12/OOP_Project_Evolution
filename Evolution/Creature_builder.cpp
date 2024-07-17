@@ -11,7 +11,6 @@
 #include "Grass.h"
 #include "Lynx.h"
 #include "Moss.h"
-#include "Processing.h"
 #include "Wolf.h"
 
 
@@ -60,7 +59,7 @@ Creature_data::Builder& Creature_data::Builder::coordinate(const Coord& coord)
 	return *this;
 }
 
-Creature_data::Builder& Creature_data::Builder::texture(const Texture& tex)
+Creature_data::Builder& Creature_data::Builder::texture(std::shared_ptr<sf::Texture> tex)
 {
 	texture_ = tex;
 	return *this;

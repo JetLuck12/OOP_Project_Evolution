@@ -1,0 +1,6 @@
+Grass images/grass.png
+Deer images/deer.png
+Moss images/moss.png
+Wolf images/wolf.png
+Lynx images/lynx.png
+Goat images/goat.png

@@ -4,7 +4,7 @@
 class Grass : public Plant
 {
 public:
-	Grass(size_t ttl, const Coord& coord, const Texture& tex):Plant(ttl,coord,tex){}
+	Grass(size_t ttl, const Coord& coord, std::shared_ptr<sf::Texture> tex):Plant(ttl,coord,tex){}
 	~Grass() override = default;
 private:
 	bool is_cell_is_suitable(Creature_data& data, const Coord& coord) override;

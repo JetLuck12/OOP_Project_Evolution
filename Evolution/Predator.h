@@ -7,7 +7,7 @@
 class Predator : public Creature
 {
 public:
-	Predator(size_t ttl, const Coord& coord, const Texture& tex) :Creature(ttl, coord, tex) {}
+	Predator(size_t ttl, const Coord& coord, std::shared_ptr<sf::Texture> tex) :Creature(ttl, coord, tex) {}
 	~Predator() override = default;
 	void action(Creature_data& field) override;
 protected:

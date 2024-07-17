@@ -28,7 +28,7 @@ public:
 	};
 	Iterator begin() const { return Iterator{creatures_.begin()}; }
 	Iterator end() const { return Iterator{ creatures_.end() }; }
-	Cell() { landscape = nullptr; is_changed_ = false; }
+	Cell() { is_changed_ = false; }
 	void add_creature(std::shared_ptr<Creature>);
 	void remove_creature(std::shared_ptr <Creature>);
 	std::shared_ptr<Creature>& find_creature(Creature*);
@@ -37,9 +37,8 @@ public:
 	void set_landscape(std::shared_ptr<Landscape> new_land);
 	bool is_changed() const { return is_changed_; }
 	void reset_change() { is_changed_ = false; }
-	bool is_land_init() const { return !!landscape; }
 private:
 	std::vector<std::shared_ptr<Creature>> creatures_;
-	std::shared_ptr <Landscape> landscape;
 	bool is_changed_;
+	std::shared_ptr<Landscape> landscape_;
 };

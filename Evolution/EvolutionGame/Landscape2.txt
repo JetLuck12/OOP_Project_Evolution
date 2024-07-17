@@ -1,0 +1,9 @@
+Meadow 0 0
+Meadow 0 1
+Meadow 0 2
+Meadow 1 0
+Meadow 1 1
+Meadow 1 2
+Meadow 2 0
+Meadow 2 1
+Meadow 2 2

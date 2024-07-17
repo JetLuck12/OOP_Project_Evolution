@@ -1,0 +1,3 @@
+Meadow images/meadow.png
+Mountain images/mountain.png
+Water images/water.jpg

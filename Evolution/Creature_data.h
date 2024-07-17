@@ -81,7 +81,7 @@ class Creature_data
 {
 public:
 	
-	Creature_data(std::istream& creature_input, std::istream& landscape_input, const Texture_pack& textures, const Landscape_pack& landscapes);
+	Creature_data(std::istream& creature_input, std::istream& landscape_input, const Texture_pack& texture, const Landscape_pack& landscapes);
 	~Creature_data();
 
 	Creature_data(Creature_data&) = delete;
@@ -100,14 +100,14 @@ private:
 		Builder& type(const std::string&);
 		Builder& coordinate(const Coord&);
 		Builder& ttl(size_t);
-		Builder& texture(const Texture&);
+		Builder& texture(std::shared_ptr<sf::Texture>);
 		std::shared_ptr<Creature> build();
 		static Coord get_size_of_field(std::istringstream& input);
 	private:
 		std::string type_;
 		Coord coord_;
 		size_t ttl_;
-		Texture texture_;
+		std::shared_ptr<sf::Texture> texture_;
 	};
 	Creature_field field_;
 	Creature_list list_;
