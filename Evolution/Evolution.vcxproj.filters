@@ -79,6 +79,15 @@
     <Filter Include="Graphics\SFML">
       <UniqueIdentifier>{6a230481-99af-40d9-bb73-02d09da027a5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Graphics\SFML\Dragging">
+      <UniqueIdentifier>{b875654d-7d74-43f2-a9a7-e34612ede91d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\SFML\Config">
+      <UniqueIdentifier>{270ae579-02fb-43ab-9f5d-8f2f5eefc2c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\SFML\Animation">
+      <UniqueIdentifier>{5546bcce-7e1d-48fb-874c-46a6a5b37f08}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Coord.h">
@@ -160,14 +169,17 @@
     <ClInclude Include="Lynx.h">
       <Filter>Creature\Predator\Lynx</Filter>
     </ClInclude>
-    <ClInclude Include="SFML_drawing.h">
-      <Filter>Graphics\SFML</Filter>
+    <ClInclude Include="Dragging.h">
+      <Filter>Graphics\SFML\Dragging</Filter>
     </ClInclude>
     <ClInclude Include="Texture_init.h">
-      <Filter>Graphics\SFML</Filter>
+      <Filter>Graphics\SFML\Config</Filter>
     </ClInclude>
-    <ClInclude Include="Dragging.h">
-      <Filter>Graphics\SFML</Filter>
+    <ClInclude Include="Animation.h">
+      <Filter>Graphics\SFML\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Action_animation_list.h">
+      <Filter>Creature</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -243,16 +255,16 @@
     <ClCompile Include="Cell.cpp">
       <Filter>Simple classes</Filter>
     </ClCompile>
-    <ClCompile Include="SFML_drawing.cpp">
-      <Filter>Graphics\SFML</Filter>
+    <ClCompile Include="Animation.cpp">
+      <Filter>Graphics\SFML\Animation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="EvolutionGame\texture_paths.txt">
-      <Filter>Graphics\SFML</Filter>
+      <Filter>Graphics\SFML\Config</Filter>
     </Text>
     <Text Include="EvolutionGame\landscape_paths.txt">
-      <Filter>Graphics\SFML</Filter>
+      <Filter>Graphics\SFML\Config</Filter>
     </Text>
   </ItemGroup>
 </Project>

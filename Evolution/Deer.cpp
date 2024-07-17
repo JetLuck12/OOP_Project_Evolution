@@ -12,7 +12,7 @@ bool Deer::is_cell_is_suitable(Creature_data& data, const Coord& coord)
 
 void Deer::breed_one(Creature_data& data, const Coord& coord)
 {
-	std::shared_ptr <Creature> child = std::make_shared<Deer>(ttl_ / 2, coord, tex_);
+	std::shared_ptr <Creature> child = std::make_shared<Deer>(ttl_ / 2, coord, animation_);
 	ttl_ /= 2;
 	data.get_list().push_back(child);
 	data.get_field().add_creature(child);

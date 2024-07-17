@@ -12,7 +12,7 @@ bool Moss::is_cell_is_suitable(Creature_data& data, const Coord& coord)
 
 void Moss::breed_one(Creature_data& field, const Coord& coord)
 {
-	std::shared_ptr<Creature> child = std::make_shared<Moss>(1, coord, tex_);
+	std::shared_ptr<Creature> child = std::make_shared<Moss>(1, coord, animation_);
 	field.get_list().push_back(child);
 	field.get_field().add_creature(child);
 }

@@ -7,7 +7,6 @@
 #include <memory>
 #include <memory>
 #include "Texture_init.h"
-#include "SFML_drawing.h"
 #include <sstream>
 
 #include "Dragging.h"
@@ -18,7 +17,7 @@ int main()
 {
 	{
 		srand(std::chrono::system_clock::now().time_since_epoch().count());
-		std::ifstream input("Creatures.txt");
+		std::ifstream input("Creatures2.txt");
 
 		std::ifstream landscape_stream( "Landscape.txt" );
 
