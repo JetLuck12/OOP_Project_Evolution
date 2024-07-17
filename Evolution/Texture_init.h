@@ -18,8 +18,17 @@ inline Texture_pack texture_init()
 	{
 		std::stringstream streamline(line);
 		std::string type, path;
+		int rows;
 
-		streamline >> type >> path;
+
+		streamline >> type >> path >> rows; //format line: "type path rows" and type of animation, rows and size of row of need animations in order: stand, move(up, up-right, right, down-right, down, down-left, left, up-left), eat, sleep 
+		std::string animation_type;
+		int action_row;
+		int size_of_row;
+		while(streamline >> animation_type >> action_row >> size_of_row)
+		{
+			
+		}
 		sf::Texture tex;
 		tex.loadFromFile(path);
 		textures.add_texture(type, std::make_shared<sf::Texture>(tex));

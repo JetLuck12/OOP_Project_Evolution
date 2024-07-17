@@ -135,6 +135,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Action_animation_list.h" />
+    <ClInclude Include="Animation.h" />
     <ClInclude Include="Cell.h" />
     <ClInclude Include="console.h" />
     <ClInclude Include="Coord.h" />
@@ -159,7 +161,6 @@
     <ClInclude Include="Mountains.h" />
     <ClInclude Include="Plant.h" />
     <ClInclude Include="Predator.h" />
-    <ClInclude Include="SFML_drawing.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TexturePack.h" />
     <ClInclude Include="Texture_init.h" />
@@ -167,6 +168,7 @@
     <ClInclude Include="Wolf.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="console.c" />
     <ClCompile Include="Coord.cpp" />
@@ -190,7 +192,6 @@
     <ClCompile Include="Moss.cpp" />
     <ClCompile Include="Plant.cpp" />
     <ClCompile Include="Predator.cpp" />
-    <ClCompile Include="SFML_drawing.cpp" />
     <ClCompile Include="Wolf.cpp" />
   </ItemGroup>
   <ItemGroup>

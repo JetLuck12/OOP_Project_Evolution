@@ -21,9 +21,9 @@ void Creature::reduce_ttl()
 	ttl_ -= 1;
 }
 
-std::shared_ptr<sf::Texture> Creature::get_texture() const
+std::shared_ptr<Animation> Creature::get_texture() const
 {
-	return tex_;
+	return animation_;
 }
 
 void Creature::set_coord(const Coord& new_coord)

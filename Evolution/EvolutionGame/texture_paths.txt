@@ -1,6 +1,1 @@
-Grass images/grass.png
-Deer images/deer.png
-Moss images/moss.png
-Wolf images/wolf.png
-Lynx images/lynx.png
-Goat images/goat.png
+Grass images/grass.png 1 Stand 1 4 
